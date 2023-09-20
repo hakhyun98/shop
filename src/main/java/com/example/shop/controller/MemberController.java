@@ -18,9 +18,11 @@ public class MemberController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute("member") Member member, Model model){
-        if(memberService.create(member)>0)
-            return "/home/index";
+        if(memberService.create(member)>0){
+            System.out.println('1');
+            return "/home/index";}
         else
+            System.out.println('0');
             return "member/sign-up-form";
     }
 }
