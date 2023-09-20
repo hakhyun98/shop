@@ -3,7 +3,7 @@ package com.example.shop.entity;
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;
 import lombok.*;
-
+@Entity
 @Enabled
 @Table(name = "member")
 @ToString
