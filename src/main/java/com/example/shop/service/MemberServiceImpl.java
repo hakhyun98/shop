@@ -3,10 +3,12 @@ package com.example.shop.service;
 import com.example.shop.domain.Member;
 import com.example.shop.entity.MemberEntity;
 import com.example.shop.repository.MemberRepository;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Resource
 @Service
 public class MemberServiceImpl implements MemberService{
     MemberRepository memberRepository;
@@ -19,10 +21,10 @@ public class MemberServiceImpl implements MemberService{
         MemberEntity entity = MemberEntity.builder()
                 .seq(m.getSeq())
                 .name(m.getName())
-                .email(m.getEmail())
-                .pw(m.getPw())
                 .address(m.getAddress())
                 .phone(m.getPhone())
+                .email(m.getEmail())
+                .pw(m.getPw())
                 .build();
         if(memberRepository.save(entity) != null)
             return 1;

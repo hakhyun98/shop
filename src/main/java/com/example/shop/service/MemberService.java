@@ -2,10 +2,12 @@ package com.example.shop.service;
 
 import com.example.shop.domain.Member;
 import com.example.shop.entity.MemberEntity;
+import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Resource
 @Service
 public interface MemberService {
     int create (Member m);
