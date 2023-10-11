@@ -18,6 +18,11 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
+    @GetMapping("/home")
+    public String gohome(){
+        return "/home/index";
+    }
+
 
     @GetMapping("/acc")
     public String getAccPage() {
