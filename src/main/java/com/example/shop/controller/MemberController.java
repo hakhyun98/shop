@@ -61,6 +61,15 @@ public class MemberController {
         model.addAttribute("member", result);
         return "/member/detail";
     }
+//    @GetMapping("/update/{seq}")
+//    public String upMember(@PathVariable("seq") Long seq, Model model) {
+//        Member result = new Member();
+//        Member m = new Member();
+//        m.setSeq(seq);
+//        result = memberService.read(m);
+//        model.addAttribute("member", result);
+//        return "/member/update";
+//    }
     @PutMapping("/{seq}")
     public String updateMember(@ModelAttribute("member") Member member, Model model) {
         if(memberService.update(member) > 0 ) {
