@@ -26,17 +26,19 @@
             <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
             <div class="menu-menu-1-container">
                 <ul id="menu-menu-1" class="menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="../about.html">Top</a></li>
                     <li><a href="../shop.html">Bottom</a></li>
                     <li><a href="../blog.html">Shoes</a></li>
                     <li><a href="../elements.html">Acc</a></li>
                     <li><a href="#">User</a>
-                        <ul class="sub-menu">
-                            <li><a href="../portfolio-item.html">Sign-in</a></li>
+                        <ul th:if = "${session.mb == null}" class="sub-menu">
+                            <li><a href="../member/sign-in">Sign-in</a></li>
                             <li><a href="../member/sign-up">Sign-up</a></li>
-                            <li><a href="../shop-single.html">Sign-out</a></li>
-                            <li><a href="../portfolio-category.html">Info</a></li>
+                        </ul>
+                        <ul th:if = "${session.mb != null}" class="sub-menu">
+                            <li><a th:href="@{'/member/' + ${session.mb.seq}}">Info</a></li>
+                            <li><a href="../member/logout">Sign-out</a></li>
                         </ul>
                     </li>
                 </ul>

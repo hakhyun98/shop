@@ -12,7 +12,7 @@ import java.util.List;
 public interface MemberRepository extends JpaRepository<MemberEntity,Long> ,
         QuerydslPredicateExecutor<MemberEntity> {
     @Query("select m from MemberEntity m where m.email = :email and m.pw = :pw ")
-    MemberEntity getbyEmailPw(@Param("email")String email, @Param("pw")String pw);
+    MemberEntity getByEmailPw(@Param("email")String email, @Param("pw")String pw);
 
     List<MemberEntity> getMemberEntitiesByEmail(@Param("email") String email);
 }

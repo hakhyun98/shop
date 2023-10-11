@@ -8,31 +8,28 @@
 <body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
 <div id="page">
 	<div class="container">
-
 		<div th:replace="~{/home/main-fragment :: header}"></div>
-
 		<!-- #masthead -->
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">
 				<article id="post-39" class="post-39 page type-page status-publish hentry">
 				<header class="entry-header">
-				<h1 class="entry-title">Sign-in</h1>
+				<h1 class="entry-title">Detail</h1>
 				</header>
 					<div class="wpcmsdev-columns">
 						<div class="column column-width-one-half">
-							<h4>Sign-in</h4>
+							<h4>Detail</h4>
 							
-							<form class="wpcf7" th:method="post" th:action="@{'/member/login'}" th:object="${member}" id="sign-up-form">
+							<form class="wpcf7" th:method="post" th:action="@{'/member/' + ${member.seq}}" th:object="${member}" id="sign-up-form">
 								<div class="form">
+									<p><input type="text" name="name" th:field="*{name}" placeholder="Name *"></p>
+									<p><input type="text" name="address" th:field="*{address}" placeholder="Address *"></p>
+									<p><input type="text" name="phone" th:field="*{phone}" placeholder="Phone *"></p>
 									<p><input type="text" name="email" th:field="*{email}" placeholder="E-mail *"></p>
-									<p><input type="text" name="password" th:field="*{pw}" placeholder="Password *"></p>
-									<input type="submit" id="submit" class="clearfix btn" value="Sign-in">
+									<input type="submit" id="submit" class="clearfix btn" value="Update">
 								</div>
 							</form>
-							<div class="done">								
-								Sign-in Success Thanks!
-							</div>
 							
 						</div>
 						<div class="column column-width-one-half">
