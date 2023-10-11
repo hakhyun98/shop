@@ -53,7 +53,6 @@ public class MemberServiceImpl implements MemberService{
                 .address(m.getAddress())
                 .phone(m.getPhone())
                 .email(m.getEmail())
-                .pw(m.getPw())
                 .build();
         if(memberRepository.save(entity) != null) // 저장 성공
             return 1;

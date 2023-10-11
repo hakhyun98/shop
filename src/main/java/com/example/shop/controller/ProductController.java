@@ -21,21 +21,21 @@ public class ProductController {
 
     @GetMapping("/acc")
     public String getAccPage() {
-        return "Product/acc";
+        return "product/acc";
     }
 
     @GetMapping("/shoes")
     public String getShoesPage() {
-        return "Product/shoes";
+        return "product/shoes";
     }
 
     @GetMapping("/bottom")
     public String getBottomPage() {
-        return "Product/bottom";
+        return "product/bottom";
     }
 
     @GetMapping("/top")
     public String getTopPage() {
-        return "Product/top";
+        return "product/top";
     }
 }
