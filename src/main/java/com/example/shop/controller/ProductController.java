@@ -1,5 +1,6 @@
 package com.example.shop.controller;
 
+import com.example.shop.domain.Member;
 import com.example.shop.domain.Product;
 import com.example.shop.service.ProductService;
 import jakarta.annotation.Resource;
@@ -16,31 +17,20 @@ public class ProductController {
 
     ProductService productService;
     public ProductController(ProductService productService) {
+
         this.productService = productService;
     }
-    @GetMapping("/home")
-    public String gohome(){
-        return "/home/index";
+    @GetMapping("/register")
+    public String registerform(Model model) {
+        model.addAttribute("product", Product.builder().build());
+        return "/product/register";
+    }
+    @PostMapping("/reg-product")
+    public String create(@ModelAttribute("product") Product product, Model model){
+        if(productService.register(product)>0){
+            return "/home/index";}
+        else
+            return "product/register";
     }
 
-
-    @GetMapping("/acc")
-    public String getAccPage() {
-        return "product/acc";
-    }
-
-    @GetMapping("/shoes")
-    public String getShoesPage() {
-        return "product/shoes";
-    }
-
-    @GetMapping("/bottom")
-    public String getBottomPage() {
-        return "product/bottom";
-    }
-
-    @GetMapping("/top")
-    public String getTopPage() {
-        return "product/top";
-    }
 }

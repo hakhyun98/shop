@@ -27,10 +27,10 @@
             <div class="menu-menu-1-container">
                 <ul id="menu-menu-1" class="menu">
                     <li><a href="/">Home</a></li>
-                    <li><a href="../product/top">Top</a></li>
-                    <li><a href="../product/bottom">Bottom</a></li>
-                    <li><a href="../product/shoes">Shoes</a></li>
-                    <li><a href="../product/acc">Acc</a></li>
+                    <li><a href="../top">Top</a></li>
+                    <li><a href="../bottom">Bottom</a></li>
+                    <li><a href="../shoes">Shoes</a></li>
+                    <li><a href="../acc">Acc</a></li>
                     <li><a href="#">User</a>
                         <ul th:if = "${session.mb == null}" class="sub-menu">
                             <li><a href="../member/sign-in">Sign-in</a></li>
@@ -41,6 +41,7 @@
                             <li><a href="../member/logout">Sign-out</a></li>
                         </ul>
                     </li>
+               <li><a href="../product/register">Register Product</a></li>
                 </ul>
             </div>
         </nav>

@@ -2,7 +2,9 @@ package com.example.shop.service;
 
 
 import com.example.shop.domain.Member;
+import com.example.shop.domain.Product;
 import com.example.shop.entity.MemberEntity;
+import com.example.shop.entity.ProductEntity;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,24 +14,38 @@ import java.util.List;
 
 
 @Service
-public class ProductService {
+public interface ProductService {
 
-    public String getAccPage() {
-        return "acc"; // acc.html 페이지를 반환
+    int register (Product m);
+    Product read(Product m);
+    List<Product> readlist();
+    int update(Product m);
+    int delete(Product m);
+
+    default ProductEntity dtoToEntity(Product dto){
+       ProductEntity entity = ProductEntity.builder()
+                .seq(dto.getSeq())
+                .name(dto.getName())
+                .description(dto.getDescription())
+                .photo(dto.getPhoto())
+                .price(dto.getPrice())
+                .build();
+        return entity;
     }
 
-    public String getShoesPage() {
-        return "shoes"; // shoes.html 페이지를 반환
-    }
-
-    public String getBottomPage() {
-        return "bottom"; // bottom.html 페이지를 반환
-    }
-
-    public String getTopPage() {
-        return "top.html"; // top.html 페이지를 반환
+    default Product EntityToDto(ProductEntity entity){
+        Product dto = Product.builder()
+                .seq(entity.getSeq())
+                .name(entity.getName())
+                .price(entity.getPrice())
+                .photo(entity.getPhoto())
+                .description(entity.getDescription())
+                .build();
+        return dto;
     }
 }
+
+
 
 
 

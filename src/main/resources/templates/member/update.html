@@ -21,12 +21,13 @@
 						<div class="column column-width-one-half">
 							<h4>Update</h4>
 							
-							<form class="wpcf7" th:method="post" th:action="@{'/member/' + ${member.seq}}" th:object="${member}" id="sign-up-form">
+							<form class="wpcf7" th:method="post" th:action="@{'/member/' + ${member.seq} + '/update'}" th:object="${member}" id="sign-up-form">
 								<div class="form">
 									<p><input type="text" name="name" th:field="*{name}" placeholder="Name *"></p>
 									<p><input type="text" name="address" th:field="*{address}" placeholder="Address *"></p>
 									<p><input type="text" name="phone" th:field="*{phone}" placeholder="Phone *"></p>
 									<p><input type="text" name="email" th:field="*{email}" placeholder="E-mail *"></p>
+									<p><input type="text" name="pw" th:field="*{pw}" placeholder="Password *"></p>
 									<input type="submit" id="submit" class="clearfix btn" value="Update">
 								</div>
 							</form>
