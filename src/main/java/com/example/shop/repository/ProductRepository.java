@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity,Long> ,
         QuerydslPredicateExecutor<ProductEntity> {
-    @Query("select p from ProductEntity p where p.name = :name")
-    ProductEntity getByname(@Param("name")String name);
+    @Query("select p from ProductEntity p where p.num = :num")
+    ProductEntity getBynum(@Param("num")String num);
 
 //    List<MemberEntity> getMemberEntitiesByEmail(@Param("email") String email);
 }

@@ -25,6 +25,12 @@
 							
 							<form class="wpcf7" th:method="post" th:action="@{'/product/reg-product'}" th:object="${product}" id="register">
 								<div class="form">
+									<select th:field="*{num}" name="Type" id="lang">
+										<option value="1" >Top</option>
+										<option value="2" >Bottom</option>
+										<option value="3" >Shoes</option>
+										<option value="4" >Acc</option>
+									</select><!--<input type="text" name="num" th:field="*{num}" placeholder="price"></p>-->
 									<p><input type="text" name="name" th:field="*{name}" placeholder="name"></p>
 									<p><input type="text" name="price" th:field="*{price}" placeholder="price"></p>
 									<p><input type="text" name="photo" th:field="*{photo}" placeholder="photo"></p>

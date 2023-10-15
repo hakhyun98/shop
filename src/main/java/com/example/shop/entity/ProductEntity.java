@@ -26,4 +26,6 @@ public class ProductEntity extends BaseEntity{
     private String price;
     @Lob
     private byte[] photo;
+    @Column(length = 20 , nullable = false)
+    private int num;
 }

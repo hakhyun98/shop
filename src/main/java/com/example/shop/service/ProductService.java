@@ -17,6 +17,7 @@ import java.util.List;
 public interface ProductService {
 
     int register (Product m);
+//    Product findBoardById(Product product);
     Product read(Product m);
     List<Product> readlist();
     int update(Product m);
