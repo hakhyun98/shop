@@ -8,29 +8,39 @@
 <body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
 <div id="page">
 	<div class="container">
+
 		<div th:replace="~{/home/main-fragment :: header}"></div>
+
 		<!-- #masthead -->
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">
 				<article id="post-39" class="post-39 page type-page status-publish hentry">
 				<header class="entry-header">
-				<h1 class="entry-title">Update</h1>
+				<h1 class="entry-title">Register Product</h1>
 				</header>
 					<div class="wpcmsdev-columns">
 						<div class="column column-width-one-half">
-							<h4>Update</h4>
+							<h4>Register Product</h4>
 							
-							<form class="wpcf7" th:method="post" th:action="@{'/member/' + ${member.seq} + '/update'}" th:object="${member}" id="sign-up-form">
+							<form class="wpcf7" th:method="post" th:action="@{'/product/reg-product'}" th:object="${product}" id="register">
 								<div class="form">
-									<p><input type="text" name="name" th:field="*{name}" placeholder="Name *"></p>
-									<p><input type="text" name="address" th:field="*{address}" placeholder="Address *"></p>
-									<p><input type="text" name="phone" th:field="*{phone}" placeholder="Phone *"></p>
-									<p><input type="text" name="email" th:field="*{email}" placeholder="E-mail *"></p>
-									<p><input type="text" name="pw" th:field="*{pw}" placeholder="Password *"></p>
-									<input type="submit" id="submit" class="clearfix btn" value="Update">
+									<select th:field="*{num}" name="Type" id="lang">
+										<option value="1" >Top</option>
+										<option value="2" >Bottom</option>
+										<option value="3" >Shoes</option>
+										<option value="4" >Acc</option>
+									</select><!--<input type="text" name="num" th:field="*{num}" placeholder="price"></p>-->
+									<p><input type="text" name="name" th:field="*{name}" placeholder="name"></p>
+									<p><input type="text" name="price" th:field="*{price}" placeholder="price"></p>
+									<p><input type="text" name="photo" th:field="*{photo}" placeholder="photo"></p>
+									<p><input type="text" name="description" th:field="*{description}" placeholder="description"></p>
+									<input type="submit" id="submit" class="clearfix btn" value="Register">
 								</div>
 							</form>
+							<div class="done">								
+								Register Success Thanks!
+							</div>
 							
 						</div>
 						<div class="column column-width-one-half">
