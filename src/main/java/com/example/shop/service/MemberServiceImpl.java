@@ -41,6 +41,7 @@ public class MemberServiceImpl implements MemberService{
         result.setAddress(e.getAddress());
         result.setPhone(e.getPhone());
         result.setEmail(e.getEmail());
+        result.setPw(e.getPw());
         return result;
     }
     @Override
@@ -53,6 +54,7 @@ public class MemberServiceImpl implements MemberService{
                 .address(m.getAddress())
                 .phone(m.getPhone())
                 .email(m.getEmail())
+                .pw(m.getPw())
                 .build();
         if(memberRepository.save(entity) != null) // 저장 성공
             return 1;
