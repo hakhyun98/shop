@@ -70,7 +70,7 @@ public class MemberController {
 //        model.addAttribute("member", result);
 //        return "/member/update";
 //    }
-    @PutMapping("/{seq}")
+    @PutMapping("/update/{seq}")
     public String updateMember(@ModelAttribute("member") Member member, Model model) {
         if(memberService.update(member) > 0 ) {
             session.setAttribute("mb", member);

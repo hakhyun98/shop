@@ -21,7 +21,7 @@
 						<div class="column column-width-one-half">
 							<h4>Detail</h4>
 							
-							<form class="wpcf7" th:method="put" th:action="@{'/member/' + ${member.seq}}" th:object="${member}" id="sign-up-form">
+							<form class="wpcf7" th:method="put" th:action="@{'/member/update/' + ${member.seq}}" th:object="${member}" id="sign-up-form">
 								<div class="form">
 									<p><input type="text" name="name" th:field="*{name}" placeholder="Name *" ></p>
 									<p><input type="text" name="address" th:field="*{address}" placeholder="Address *"></p>
