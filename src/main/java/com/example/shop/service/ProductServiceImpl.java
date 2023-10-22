@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,9 +40,35 @@ public class ProductServiceImpl implements ProductService {
 //    }
 
     @Override
-    public Product read(Product m){return null;};
+    public Product read(Product p){
+        ProductEntity e = productRepository.getById(p.getSeq()); // JpaRepository 구현체의 메소드
+        Product result = new Product(); // DTO (Data Transfer Object) : Controller - Service or Controller - View
+        result.setSeq(e.getSeq());
+        result.setName(e.getName());
+        result.setPrice(e.getPrice());
+        result.setPhoto(e.getPhoto());
+        result.setDescription(e.getDescription());
+        return result;
+    };
     @Override
-    public List<Product> readlist(){return null;};
+    public List<Product> readlist(){
+        List<ProductEntity> entities = new ArrayList<>();
+        List<Product> products = null;
+        if((entities = productRepository.findAll()) != null) {
+            products = new ArrayList<>();
+            for(ProductEntity e : entities) {
+                Product p = Product.builder()
+                        .seq(e.getSeq())
+                        .name(e.getName())
+                        .price(e.getPrice())
+                        .photo(e.getPhoto())
+                        .description(e.getDescription())
+                        .build();
+                products.add(p);
+            }
+        }
+        return products;
+    };
     @Override
     public int update(Product m){return 0;};
     @Override

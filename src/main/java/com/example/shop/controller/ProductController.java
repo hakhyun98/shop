@@ -28,9 +28,19 @@ public class ProductController {
     @PostMapping("/reg-product")
     public String create(@ModelAttribute("product") Product product, Model model){
         if(productService.register(product)>0){
-            return "/home/index";}
+            return "/home/index";
+        }
         else
             return "product/register";
+    }
+    @GetMapping("/{seq}")
+    public String getProduct(@PathVariable("seq") Long seq, Model model) {
+        Product result = new Product(); // 반환
+        Product p = new Product(); // 매개변수로 전달
+        p.setSeq(seq);
+        result = productService.read(p);
+        model.addAttribute("product", result);
+        return "/home/index";
     }
 
 }

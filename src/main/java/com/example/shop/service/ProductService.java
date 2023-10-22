@@ -16,12 +16,12 @@ import java.util.List;
 @Service
 public interface ProductService {
 
-    int register (Product m);
+    int register (Product p);
 //    Product findBoardById(Product product);
-    Product read(Product m);
+    Product read(Product p);
     List<Product> readlist();
-    int update(Product m);
-    int delete(Product m);
+    int update(Product p);
+    int delete(Product p);
 
     default ProductEntity dtoToEntity(Product dto){
        ProductEntity entity = ProductEntity.builder()
