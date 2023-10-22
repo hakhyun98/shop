@@ -8,11 +8,14 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<ProductEntity,Long> ,
         QuerydslPredicateExecutor<ProductEntity> {
     @Query("select p from ProductEntity p where p.num = :num")
-    ProductEntity getBynum(@Param("num")String num);
+    ProductEntity getByNum(@Param("num") String num);
+    List<ProductEntity> getProductBynum(@Param("num") String num);
 
 //    List<MemberEntity> getMemberEntitiesByEmail(@Param("email") String email);
 }
