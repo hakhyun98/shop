@@ -21,10 +21,10 @@ public interface ProductService {
     int register (Product p);
 //    Product findBoardById(Product product);
     Product read(Product p);
-    List<Product> readlist();
+    List<Product> readList();
     int update(Product p);
     int delete(Product p);
-    PageResultDTO<Product, ProductEntity> getList(PageRequestDTO requestDTO);
+
 
 
     default ProductEntity dtoToEntity(Product dto){
@@ -39,7 +39,7 @@ public interface ProductService {
         return entity;
     }
 
-    default Product EntityToDto(ProductEntity entity){
+    default Product entityToDto(ProductEntity entity){
         Product dto = Product.builder()
                 .seq(entity.getSeq())
                 .name(entity.getName())

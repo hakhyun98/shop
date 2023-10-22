@@ -13,7 +13,7 @@
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">
-				<div th:if="${product.num == 1}" th:object="${product}" th:each="product : ${product}" class="grid portfoliogrid">
+				<div th:object="${product}" th:if="${product.num == 1}"  th:each="product : ${product}" class="grid portfoliogrid">
 					<article class="hentry">
 					<header class="entry-header">
 					<div class="entry-thumbnail">

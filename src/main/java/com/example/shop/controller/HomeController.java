@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 
 public class HomeController {
-    @GetMapping
-    public String gohome() {
-        return "/home/index";
+    @GetMapping("/main")
+    public String getMainPage() {
+        return "product/main";
     }
 
     @GetMapping("/acc")

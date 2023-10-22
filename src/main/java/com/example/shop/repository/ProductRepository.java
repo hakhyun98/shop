@@ -14,8 +14,8 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<ProductEntity,Long> ,
         QuerydslPredicateExecutor<ProductEntity> {
     @Query("select p from ProductEntity p where p.num = :num")
-    ProductEntity getByNum(@Param("num") String num);
-    List<ProductEntity> getProductBynum(@Param("num") String num);
+    ProductEntity getByNum(@Param("num") int num);
+    List<ProductEntity> getProductBynum(@Param("num") int num);
 
 //    List<MemberEntity> getMemberEntitiesByEmail(@Param("email") String email);
 }

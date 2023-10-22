@@ -59,42 +59,29 @@ public class ProductServiceImpl implements ProductService {
         return result;
     };
     @Override
-    public List<Product> readlist(){
-        List<ProductEntity> entities = new ArrayList<>();
-        List<Product> products = null;
-        if((entities = productRepository.findAll()) != null) {
-            products = new ArrayList<>();
-            for(ProductEntity e : entities) {
-                Product p = Product.builder()
-                        .seq(e.getSeq())
-                        .name(e.getName())
-                        .price(e.getPrice())
-                        .photo(e.getPhoto())
-                        .num(e.getNum())
-                        .description(e.getDescription())
-                        .build();
-                products.add(p);
-            }
+    public List<Product> readList(){
+        List<ProductEntity> entities = productRepository.findAll(); // findAll() 메소드가 null을 반환하지 않으므로 별도의 null 체크는 필요하지 않습니다.
+        List<Product> products = new ArrayList<>();
+
+        for(ProductEntity e : entities) {
+            Product p = Product.builder()
+                    .seq(e.getSeq())
+                    .name(e.getName())
+                    .price(e.getPrice())
+                    .photo(e.getPhoto())
+                    .num(e.getNum())
+                    .description(e.getDescription())
+                    .build();
+            products.add(p);
         }
+
         return products;
-    };
+    }
+
     @Override
     public int update(Product m){return 0;};
     @Override
     public int delete(Product m){return 0;};
-    @Override
-    public PageResultDTO<Product, ProductEntity> getList(PageRequestDTO requestDTO) {
-        Sort sort = Sort.by("num").descending();
-        Pageable pageable = requestDTO.getPageable(sort);
-        //Page<MemberEntity> result = memberRepository.findAll(pageable);
 
-        Page<ProductEntity> result = productRepository.findAll(pageable);
-
-        Function<ProductEntity, Product> fn = (entity -> EntityToDto(entity));
-
-        PageResultDTO pageResultDTO = new PageResultDTO<>(result, fn, requestDTO.getPerPagination());
-
-        return pageResultDTO;
-    }
 
 }

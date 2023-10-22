@@ -26,7 +26,7 @@ public class MemberController {
     @PostMapping("/create")
     public String create(@ModelAttribute("member") Member member, Model model){
         if(memberService.create(member)>0){
-            return "/home/index";}
+            return "/product/main";}
         else
             return "member/sign-up-form";
     }
@@ -44,7 +44,7 @@ public class MemberController {
             session.setAttribute("mb", result);
             return "redirect:/";
         } else
-            return "home/index";
+            return "product/main";
     }
 
     @GetMapping("/logout")
