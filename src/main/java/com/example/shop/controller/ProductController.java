@@ -1,7 +1,10 @@
 package com.example.shop.controller;
 
 import com.example.shop.domain.Member;
+import com.example.shop.domain.PageRequestDTO;
+import com.example.shop.domain.PageResultDTO;
 import com.example.shop.domain.Product;
+import com.example.shop.entity.ProductEntity;
 import com.example.shop.service.ProductService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
@@ -20,6 +23,27 @@ public class ProductController {
 
         this.productService = productService;
     }
+    @GetMapping(value ={"", "/"} ) // ?page=&perPage=
+    public String listProductPagination(@RequestParam(value="page", required = false, defaultValue = "1") int page,
+                                       @RequestParam(value="per-page", required = false, defaultValue = "8") int perPage,
+                                       @RequestParam(value="per-pagination", required = false, defaultValue ="5") int perPagination,
+                                       @RequestParam(value="type", required = false, defaultValue ="e") String type,
+                                       @RequestParam(value="keyword", required = false, defaultValue ="@") String keyword,
+                                       Model model) {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .page(page)
+                .perPage(perPage)
+                .perPagination(perPagination)
+                .type(type)
+                .keyword(keyword)
+                .build();
+        PageResultDTO<Product, ProductEntity> resultDTO = productService.getList(pageRequestDTO);
+        if (resultDTO != null) {
+            model.addAttribute("result", resultDTO); //page number list
+            return "/home/index"; // view : template engine - thymeleaf .html
+        }
+        else return null;
+    }
     @GetMapping("/register")
     public String registerform(Model model) {
         model.addAttribute("product", Product.builder().build());
@@ -33,7 +57,7 @@ public class ProductController {
         else
             return "product/register";
     }
-    @GetMapping("/{seq}")
+    @GetMapping("{seq}")
     public String getProduct(@PathVariable("seq") Long seq, Model model) {
         Product result = new Product(); // 반환
         Product p = new Product(); // 매개변수로 전달

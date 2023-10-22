@@ -1,15 +1,22 @@
 package com.example.shop.service;
 
+import com.example.shop.domain.PageRequestDTO;
+import com.example.shop.domain.PageResultDTO;
 import com.example.shop.domain.Product;
 import com.example.shop.entity.MemberEntity;
 import com.example.shop.entity.ProductEntity;
 import com.example.shop.repository.ProductRepository;
+import com.querydsl.core.BooleanBuilder;
 import jakarta.annotation.Resource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 @Service
 @Resource
@@ -47,6 +54,7 @@ public class ProductServiceImpl implements ProductService {
         result.setName(e.getName());
         result.setPrice(e.getPrice());
         result.setPhoto(e.getPhoto());
+        result.setNum(e.getNum());
         result.setDescription(e.getDescription());
         return result;
     };
@@ -62,6 +70,7 @@ public class ProductServiceImpl implements ProductService {
                         .name(e.getName())
                         .price(e.getPrice())
                         .photo(e.getPhoto())
+                        .num(e.getNum())
                         .description(e.getDescription())
                         .build();
                 products.add(p);
@@ -73,4 +82,19 @@ public class ProductServiceImpl implements ProductService {
     public int update(Product m){return 0;};
     @Override
     public int delete(Product m){return 0;};
+    @Override
+    public PageResultDTO<Product, ProductEntity> getList(PageRequestDTO requestDTO) {
+        Sort sort = Sort.by("num").descending();
+        Pageable pageable = requestDTO.getPageable(sort);
+        //Page<MemberEntity> result = memberRepository.findAll(pageable);
+
+        Page<ProductEntity> result = productRepository.findAll(pageable);
+
+        Function<ProductEntity, Product> fn = (entity -> EntityToDto(entity));
+
+        PageResultDTO pageResultDTO = new PageResultDTO<>(result, fn, requestDTO.getPerPagination());
+
+        return pageResultDTO;
+    }
+
 }

@@ -1,18 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<div th:replace="~{/home/main-fragment :: sty}">
-		<title>N F T S | No Fail To Shopping</title>
-		<link rel='stylesheet' href='/css/woocommerce-layout.css' type='text/css' media='all'/>
-		<link rel='stylesheet' href='/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
-		<link rel='stylesheet' href='/css/woocommerce.css' type='text/css' media='all'/>
-		<link rel='stylesheet' href='/css/font-awesome.min.css' type='text/css' media='all'/>
-		<link rel='stylesheet' href='/css/style.css' type='text/css' media='all'/>
-		<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
-		<link rel='stylesheet' href='/css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
-	</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<div th:replace="~{/home/main-fragment :: sty}"></div>
 </head>
 <body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
 <div id="page">
@@ -22,30 +13,25 @@
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">
-					<div class="grid portfoliogrid">
-
-						<article class="hentry">
-							<header class="entry-header">
-								<div class="entry-thumbnail">
-									<a href="../portfolio-item.html"><img src="https://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/15/2015/09/15222855/p7.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="p1"/></a>
-								</div>
-								<h2 class="entry-title"><a href="../portfolio-item.html" rel="bookmark">Twilight</a></h2>
-								<a class='portfoliotype' href='../portfolio-category.html'>hat</a>
-								<a class='portfoliotype' href='../portfolio-category.html'>woman</a>
-								<a class='portfoliotype' href='../portfolio-category.html'>summer</a>
-							</header>
-						</article>
-
+				<div class="grid portfoliogrid">
+					<article class="hentry">
+					<header class="entry-header">
+					<div class="entry-thumbnail">
+						<a href="../portfolio-item.html"><img src="https://s3.amazonaws.com/caymandemo/wp-content/uploads/sites/15/2015/09/15222855/p7.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="p1"/></a>
 					</div>
-					<!-- .grid -->
-
-					<nav class="pagination">
-						<span class="page-numbers current">1</span>
-						<a class="page-numbers" href="#">2</a>
-						<a class="next page-numbers" href="#">Next »</a>
-					</nav>
-					<br/>
-
+					<h2 th:object="${product}" th:each="product : ${product}" th:text="${product.name}" class="entry-title"><a href="../portfolio-item.html" rel="bookmark"></a></h2>
+					</header>
+					</article>
+				</div>
+				<!-- .grid -->
+				
+				<nav class="pagination">
+				<span class="page-numbers current">1</span>
+				<a class="page-numbers" href="#">2</a>
+				<a class="next page-numbers" href="#">Next »</a>
+				</nav>
+				<br/>
+				
 				</main>
 				<!-- #main -->
 			</div>
@@ -55,7 +41,7 @@
 	</div>
 	<!-- .container -->
 	<div th:replace="~{/home/main-fragment :: footer}"></div>
-
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
 </div>
 <!-- #page -->
 <div th:replace="~{/home/main-fragment :: jsc}"></div>

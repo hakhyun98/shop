@@ -2,6 +2,8 @@ package com.example.shop.service;
 
 
 import com.example.shop.domain.Member;
+import com.example.shop.domain.PageRequestDTO;
+import com.example.shop.domain.PageResultDTO;
 import com.example.shop.domain.Product;
 import com.example.shop.entity.MemberEntity;
 import com.example.shop.entity.ProductEntity;
@@ -22,6 +24,8 @@ public interface ProductService {
     List<Product> readlist();
     int update(Product p);
     int delete(Product p);
+    PageResultDTO<Product, ProductEntity> getList(PageRequestDTO requestDTO);
+
 
     default ProductEntity dtoToEntity(Product dto){
        ProductEntity entity = ProductEntity.builder()
@@ -29,6 +33,7 @@ public interface ProductService {
                 .name(dto.getName())
                 .description(dto.getDescription())
                 .photo(dto.getPhoto())
+                .num(dto.getNum())
                 .price(dto.getPrice())
                 .build();
         return entity;
@@ -40,6 +45,7 @@ public interface ProductService {
                 .name(entity.getName())
                 .price(entity.getPrice())
                 .photo(entity.getPhoto())
+                .num(entity.getNum())
                 .description(entity.getDescription())
                 .build();
         return dto;
