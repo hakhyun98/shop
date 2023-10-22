@@ -1,4 +1,5 @@
 package com.example.shop.controller;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.shop.domain.Member;
 import com.example.shop.domain.Product;
