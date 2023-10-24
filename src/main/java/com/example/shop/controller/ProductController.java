@@ -22,19 +22,19 @@ public class ProductController {
     }
     @GetMapping("/top-detail")
     public String Producttdetail(){
-        return "product/topdetail";
+        return "product/detail/topdetail";
     }
     @GetMapping("/bottom-detail")
     public String Productbdetail(){
-        return "product/bottomdetail";
+        return "product/detail/bottomdetail";
     }
     @GetMapping("/shoes-detail")
     public String Productsdetail(){
-        return "product/shoesdetail";
+        return "product/detail/shoesdetail";
     }
     @GetMapping("/acc-detail")
     public String Productadetail(){
-        return "product/accdetail";
+        return "product/detail/accdetail";
     }
 
 //    @GetMapping(value ={"", "/"} ) // ?page=&perPage=
