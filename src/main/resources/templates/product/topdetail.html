@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+	<div th:replace="~{/home/main-fragment :: sty}"></div>
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="page">
+	<div class="container">
+		<div th:replace="~{/home/main-fragment :: header}"></div>
+		<!-- #masthead -->
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area column two-thirds single-portfolio">
+				<main id="main" class="site-main">
+				
+				<article class="portfolio hentry">
+				<header class="entry-header">
+				<div class="entry-thumbnail">
+					<img width="800" height="533" src="https://m.wiisnt.co.kr/web/product/medium/202307/fa1cf6f15521d3c1e047410573b2d364.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="p1"/>
+				</div>
+				<h1 class="entry-title">맨투맨</h1>
+				</header>
+				<div class="entry-content">
+
+					<blockquote>
+						<p>
+							갈색 바탕의 노란색 그림이 들어가있는 맨투맨
+						</p>
+					</blockquote>
+				</div>
+				</article>
+				
+				<nav class="navigation post-navigation" role="navigation">
+					<h1 class="screen-reader-text">Post navigation</h1>
+					<div class="nav-links">
+					<div class="nav-previous">
+					<a href="#" rel="prev"> <span class="meta-nav"></span></a>
+					</div>
+					<div class="nav-next">
+					<a href="#" rel="next"><span class="meta-nav"></span></a>
+					</div>		
+					</div>
+				</nav>
+				<!-- .navigation -->
+				
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+			
+			<div id="secondary" class="column third">
+				<div class="widget-area">
+					<aside class="widget">
+						<h4 class="widget-title">상품 정보</h4>
+						<form class="wpcf7" method="post" action="../contact.php" id="contactform">
+							<div class="form">
+								<select  name="Size" id="lang">
+									<option value="0" >Size</option>
+									<option value="1" >95</option>
+									<option value="2" >100</option>
+									<option value="3" >105</option>
+									<option value="4" >110</option>
+								</select>
+								<p><input type="text" name="email" placeholder="₩55,000" readonly></p>
+								<p><textarea name="text" rows="3" placeholder="수량"></textarea></p>
+								<input type="submit" id="submit" class="clearfix btn" value="구매">
+							</div>
+						</form>
+						<div class="done">								
+							Your message has been sent. Thank you!
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+		<!-- #content -->
+	</div>
+	<!-- .container -->
+	<div th:replace="~{/home/main-fragment :: footer}"></div>
+	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a>
+</div>
+<!-- #page -->
+<div th:replace="~{/home/main-fragment :: jsc}"></div>
+</body>
+</html>

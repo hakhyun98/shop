@@ -1,15 +1,8 @@
 package com.example.shop.controller;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.example.shop.domain.Member;
-import com.example.shop.domain.PageRequestDTO;
-import com.example.shop.domain.PageResultDTO;
 import com.example.shop.domain.Product;
-import com.example.shop.entity.ProductEntity;
 import com.example.shop.service.ProductService;
 import jakarta.annotation.Resource;
-import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +19,22 @@ public class ProductController {
     public ProductController(ProductService productService) {
 
         this.productService = productService;
+    }
+    @GetMapping("/top-detail")
+    public String Producttdetail(){
+        return "product/topdetail";
+    }
+    @GetMapping("/bottom-detail")
+    public String Productbdetail(){
+        return "product/bottomdetail";
+    }
+    @GetMapping("/shoes-detail")
+    public String Productsdetail(){
+        return "product/shoesdetail";
+    }
+    @GetMapping("/acc-detail")
+    public String Productadetail(){
+        return "product/accdetail";
     }
 
 //    @GetMapping(value ={"", "/"} ) // ?page=&perPage=

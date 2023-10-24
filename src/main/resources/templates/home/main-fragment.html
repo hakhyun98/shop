@@ -25,8 +25,8 @@
             <button class="menu-toggle">Menu</button>
             <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
             <div class="menu-menu-1-container">
-                <ul id="menu-menu-1" class="menu">
-                    <li><a href="/main">Home</a></li>
+                <ul th:if = "${session.mb == null}" id="menu-menu-1" class="menu">
+                    <li><a href="/">Home</a></li>
                     <li><a href="/top">Top</a></li>
                     <li><a href="/bottom">Bottom</a></li>
                     <li><a href="/shoes">Shoes</a></li>
@@ -36,12 +36,22 @@
                             <li><a href="../member/sign-in">Sign-in</a></li>
                             <li><a href="../member/sign-up">Sign-up</a></li>
                         </ul>
-                        <ul th:if = "${session.mb != null}" class="sub-menu">
+                    </li>
+                </ul>
+                <ul th:if = "${session.mb != null}" id="menu-menu-2" class="menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/top">Top</a></li>
+                    <li><a href="/bottom">Bottom</a></li>
+                    <li><a href="/shoes">Shoes</a></li>
+                    <li><a href="/acc">Acc</a></li>
+                    <li><a href="#">User</a>
+                        <ul class="sub-menu">
                             <li><a th:href="@{'/member/' + ${session.mb.seq}}">Info</a></li>
                             <li><a href="../member/logout">Sign-out</a></li>
                         </ul>
                     </li>
-               <li ><a href="../product/register">Register Product</a></li>
+                    <li th:if = "${session.mb.name == 'root'}"><a href="../product/register">Register Product</a></li>
+
                 </ul>
             </div>
         </nav>

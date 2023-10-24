@@ -62,7 +62,6 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> readList(){
         List<ProductEntity> entities = productRepository.findAll(); // findAll() 메소드가 null을 반환하지 않으므로 별도의 null 체크는 필요하지 않습니다.
         List<Product> products = new ArrayList<>();
-
         for(ProductEntity e : entities) {
             Product p = Product.builder()
                     .seq(e.getSeq())
@@ -74,7 +73,6 @@ public class ProductServiceImpl implements ProductService {
                     .build();
             products.add(p);
         }
-
         return products;
     }
 

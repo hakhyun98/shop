@@ -22,6 +22,7 @@ public interface ProductService {
 //    Product findBoardById(Product product);
     Product read(Product p);
     List<Product> readList();
+//    List<Product> getProductBynum();
     int update(Product p);
     int delete(Product p);
 

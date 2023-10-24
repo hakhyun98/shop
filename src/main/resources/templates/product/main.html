@@ -13,21 +13,37 @@
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main">
-
 					<div class="grid portfoliogrid">
-						<!-- 반복문을 통해 products 목록을 순회 -->
-						<article class="hentry" th:each="product : ${products}">
+						<article class="hentry">
 							<header class="entry-header">
 								<div class="entry-thumbnail">
-									<a href="../portfolio-item.html">
-										<!-- 이미지 출력 -->
-											<img th:src="@{'data:image/png;base64,' + ${product.photo}}" alt="Product Image" />
-									</a>
+									<a href="product/top-detail"><img src="https://m.wiisnt.co.kr/web/product/medium/202307/fa1cf6f15521d3c1e047410573b2d364.jpg"  alt="맨투맨"/></a>
 								</div>
-								<h2 class="entry-title">
-									<!-- 제품 이름 출력 -->
-									<span th:text="${product.name}"></span>
-								</h2>
+								<h2 class="entry-title"><a href="product/top-detail" rel="bookmark">맨투맨</a></h2>
+							</header>
+						</article>
+						<article class="hentry">
+							<header class="entry-header">
+								<div class="entry-thumbnail">
+									<a href="product/bottom-detail"><img src="https://m.ozkiz.com/web/product/big/20200417/78c81efccd60cfd9a2d755af8fd99095.jpg"  alt="청바지"/></a>
+								</div>
+								<h2 class="entry-title"><a href="product/bottom-detail" rel="bookmark">청바지</a></h2>
+							</header>
+						</article>
+						<article class="hentry">
+							<header class="entry-header">
+								<div class="entry-thumbnail">
+									<a href="product/acc-detail"><img src="https://m.belivus.co.kr/web/product/big/202103/8e73cb41dfd864c3e0213de941c52b5d.png"  alt="허리띠"/></a>
+								</div>
+								<h2 class="entry-title"><a href="product/acc-detail" rel="bookmark">허리띠</a></h2>
+							</header>
+						</article>
+						<article class="hentry">
+							<header class="entry-header">
+								<div class="entry-thumbnail">
+									<a href="product/shoes-detail"><img src="https://gdimg.gmarket.co.kr/822278636/still/280?ver=1640335204"  alt="구두"/></a>
+								</div>
+								<h2 class="entry-title"><a href="product/shoes-detail" rel="bookmark">구두</a></h2>
 							</header>
 						</article>
 					</div>
